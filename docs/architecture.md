@@ -38,14 +38,14 @@ The frontend is a modern **Single Page Application (SPA)** built with **React** 
 ## Data Flow (Fetching Sales Data Example)
 
 
-1.  **User Interaction**: A user interacts with the UI in the `SalesDashboard` (e.g., applies filters or changes the page).
-2.  **API Request**: The `SalesDashboard` component triggers an asynchronous API call using a function from `src/services/salesService.js`.
-3.  **Route Handling**: The backend receives the request (e.g., at the `/sales` endpoint). `src/index.js` routes it via `src/routes/sales.routes.js`.
-4.  **Controller Processing**: The request is handled by `src/controllers/sales.controller.js`. The controller validates incoming query parameters (`page`, `limit`, `filters`).
-5.  **Service Execution**: The controller calls the appropriate business logic service, such as the `getSales` function in `src/services/sales.service.js`.
-6.  **Database Query**: The service constructs a dynamic Prisma `where` clause using helper functions (`src/utils/filters.js`) and executes the query against the SQLite database.
-7.  **Response**: The database returns data to the service, which passes it back to the controller. The controller sends a JSON response to the frontend.
-8.  **UI Update**: The frontend receives the data, updates the relevant component state, and React re-renders the components (like the `SalesTable`) to display the new information.
+   1.  **User Interaction**: A user interacts with the UI in the `SalesDashboard` (e.g., applies filters or changes the page).
+   2.  **API Request**: The `SalesDashboard` component triggers an asynchronous API call using a function from `src/services/salesService.js`.
+   3.  **Route Handling**: The backend receives the request (e.g., at the `/sales` endpoint). `src/index.js` routes it via `src/routes/sales.routes.js`.
+   4.  **Controller Processing**: The request is handled by `src/controllers/sales.controller.js`. The controller validates incoming query parameters             (`page`, `limit`, `filters`).
+   5.  **Service Execution**: The controller calls the appropriate business logic service, such as the `getSales` function in `src/services/sales.service.js`.
+   6.  **Database Query**: The service constructs a dynamic Prisma `where` clause using helper functions (`src/utils/filters.js`) and executes the query against the SQLite database.
+   7.  **Response**: The database returns data to the service, which passes it back to the controller. The controller sends a JSON response to the frontend.
+   8.  **UI Update**: The frontend receives the data, updates the relevant component state, and React re-renders the components (like the `SalesTable`) to display the new information.
 
 ---
 
@@ -78,7 +78,7 @@ The frontend is a modern **Single Page Application (SPA)** built with **React** 
 
 ---
 
-## 🧩 Module Responsibilities
+## Module Responsibilities
 
 | Module | Location | Responsibility |
 | :--- | :--- | :--- |
