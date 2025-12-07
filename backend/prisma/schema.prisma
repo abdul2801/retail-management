@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Customer {
+  customerId      String   @id
+  customerName    String
+  phoneNumber     String
+  gender          String
+  age             Int
+  customerRegion  String
+  customerType    String
+
+  sales           Sale[]
+
+  @@index([customerName])
+  @@index([phoneNumber])
+  @@index([gender])
+  @@index([customerRegion])
+  @@index([age])
+
+}
+
+model Product {
+  productId        String   @id
+  productName      String
+  brand            String
+  productCategory  String
+  tags             String   // stored as comma-separated string
+
+  sales            Sale[]
+
+  @@index([productCategory])
+  @@index([brand])
+
+}
+
+model Store {
+  storeId        String   @id
+  storeLocation  String
+
+  sales          Sale[]
+
+  @@index([storeLocation])
+}
+
+model Employee {
+  salespersonId  String   @id
+  employeeName   String
+
+  sales          Sale[]
+
+  @@index([employeeName])
+}
+
+model Sale {
+  transactionId       Int      @id
+  date                DateTime
+  quantity            Int
+  pricePerUnit        Float
+  discountPercentage  Float
+  totalAmount         Float
+  finalAmount         Float
+  paymentMethod       String
+  orderStatus         String
+  deliveryType        String
+
+  // Foreign Keys
+  customerId      String
+  productId       String
+  storeId         String
+  salespersonId   String
+
+  customer        Customer  @relation(fields: [customerId], references: [customerId])
+  product         Product   @relation(fields: [productId], references: [productId])
+  store           Store     @relation(fields: [storeId], references: [storeId])
+  employee        Employee  @relation(fields: [salespersonId], references: [salespersonId])
+  
+  @@index([date])
+  @@index([quantity])
+  @@index([paymentMethod])
+  @@index([customerId])
+  @@index([productId])
+  @@index([storeId])
+  @@index([salespersonId])
+
+}
+

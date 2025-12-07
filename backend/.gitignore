@@ -1,0 +1,5 @@
+node_modules/
+dist/
+prisma/migrations/
+prisma/dev.db
+prisma/data.csv
