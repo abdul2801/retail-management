@@ -1,7 +1,7 @@
 # Retail Management System
 
 A full-stack retail analytics platform featuring a modern sales dashboard and a robust backend API supporting advanced search, filtering, sorting, and pagination.
-
+(Supports all 1M+ records with indexing for fast selects.)
 ---
 
 ## 1. Overview
