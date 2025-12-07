@@ -157,11 +157,21 @@ npm install
 ```bash
 npx prisma generate
 ```
+3. Db Setup:
+
+```bash
+// Run in dev mode
+npx prisma migrate dev --name init
+// Stream csv data to prisma sqlite db
+node prisma/seed.js
+```
+
+
 
 3. Start the server:
 
 ```bash
-npm start
+npm src/index.js
 ```
 
 The backend will be available at:
